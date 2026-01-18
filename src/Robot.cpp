@@ -60,19 +60,19 @@ Robot::Robot(int8_t left1, int8_t left2, int8_t left3, int8_t right1, int8_t rig
             // }
 
             if (m_controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)) {
-                if (intake.get_velocity() == 150) {
+                if (intake.get_velocity() == 150) { //150
                     intake.set_velocity(0);
                 }
                 else {
-                    intake.set_velocity(150);
+                    intake.set_velocity(150); //150
                 }
             }
             if (m_controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
-                if (intake.get_velocity() == -150) {
+                if (intake.get_velocity() == -150) { //-150
                     intake.set_velocity(0);
                 }
                 else {
-                    intake.set_velocity(-150);
+                    intake.set_velocity(-150); //-150
                 }
             }
             intake.move(intake.get_velocity());
