@@ -14,4 +14,5 @@ namespace ports {
     constexpr int8_t INTAKE_MOTOR_1 = 1;
     constexpr int8_t INTAKE_MOTOR_2 = -21; //change
 
+    constexpr uint8_t FLAG = 'H'; //change at comp when setting it up
 };

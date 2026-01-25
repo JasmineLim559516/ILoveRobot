@@ -4,9 +4,10 @@
 #include "ports.hpp"
 
 //robot constructor
-Robot::Robot(int8_t left1, int8_t left2, int8_t left3, int8_t right1, int8_t right2, int8_t right3, int8_t intake1, int8_t intake2) :
+Robot::Robot(int8_t left1, int8_t left2, int8_t left3, int8_t right1, int8_t right2, int8_t right3, int8_t intake1, int8_t intake2, uint8_t flag1) :
     dt {left1,  left2,  left3,  right1,  right2,  right3},
-    intake {intake1, intake2}
+    intake {intake1, intake2},
+    flag {flag1}
 {};
 
         //update robot components
@@ -60,19 +61,19 @@ Robot::Robot(int8_t left1, int8_t left2, int8_t left3, int8_t right1, int8_t rig
             // }
 
             if (m_controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)) {
-                if (intake.get_velocity() == 150) { //150
+                if (intake.get_velocity() == 150) {
                     intake.set_velocity(0);
                 }
                 else {
-                    intake.set_velocity(150); //150
+                    intake.set_velocity(150);
                 }
             }
             if (m_controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
-                if (intake.get_velocity() == -150) { //-150
+                if (intake.get_velocity() == -150) {
                     intake.set_velocity(0);
                 }
                 else {
-                    intake.set_velocity(-150); //-150
+                    intake.set_velocity(-150);
                 }
             }
             intake.move(intake.get_velocity());
@@ -152,6 +153,18 @@ Robot::Robot(int8_t left1, int8_t left2, int8_t left3, int8_t right1, int8_t rig
             //chassis.tank(left_power, right_power);
         }
     
+        void Robot::update_flag()
+        {
+            if (m_controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
+                if (flag.get_state_flag()) {
+                    flag.set_flag(false);
+                }
+                else {
+                    flag.set_flag(true);
+                }
+            }
+        }
+
         //update function for whole robot
         void Robot::update(std::string info){
             update_drivetrain();

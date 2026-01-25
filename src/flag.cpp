@@ -2,16 +2,17 @@
 #include "api.h"
 #include "flag.hpp"
 
-    Flag::Flag(int8_t port) :
-    flag_motor {port}
+    Flag::Flag(uint8_t port) :
+    flag {port}
     {};
 
-    void Flag::raise()
+    void Flag::set_flag(bool a_state)
     {
-        
+        flag.set_value(a_state);
+        state = a_state;
     }
 
-    void Flag::lower()
+    bool Flag::get_state_flag()
     {
-        
+        return state;
     }

@@ -3,9 +3,12 @@
 
 class Flag {
     private:
-        pros::Motor flag_motor;
+        pros::ADIDigitalOut flag;
+
+        bool state = false;
     public:
-        Flag(int8_t port);
-        void raise();
-        void lower();
+        Flag(uint8_t port);
+
+        bool get_state_flag();
+        void set_flag(bool a_state);
 };

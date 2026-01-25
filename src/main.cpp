@@ -105,7 +105,7 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	Robot robot (ports::LEFT_BACK_DT, ports::LEFT_MIDDLE_DT, ports::LEFT_FRONT_DT, ports::RIGHT_BACK_DT, ports::RIGHT_MIDDLE_DT, ports::RIGHT_FRONT_DT, ports::INTAKE_MOTOR_1, ports::INTAKE_MOTOR_2);
+	Robot robot (ports::LEFT_BACK_DT, ports::LEFT_MIDDLE_DT, ports::LEFT_FRONT_DT, ports::RIGHT_BACK_DT, ports::RIGHT_MIDDLE_DT, ports::RIGHT_FRONT_DT, ports::INTAKE_MOTOR_1, ports::INTAKE_MOTOR_2, ports::FLAG);
 
 	while(true) {
 		robot.update("hi");
