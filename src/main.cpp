@@ -66,23 +66,51 @@ void autonomous() {
 	Intake intake (ports::INTAKE_MOTOR_1, ports::INTAKE_MOTOR_2);
 
 	//moves forward a bit 
-	drivetrain.move_velocity(100,100);
-	pros::Task::delay(150);
-	drivetrain.move_velocity(0,0);
+	// drivetrain.move_velocity(100,100);
+	// pros::Task::delay(150);
+	// drivetrain.move_velocity(0,0);
 
-	//scores preload (place robot next to parking zone)
+	//scores preload (place robot next to parking zone RIGHT)
+	drivetrain.move_velocity(100,100);
+	pros::Task::delay(700);
+	drivetrain.move_velocity(0,0);
+	pros::Task::delay(200);
+	drivetrain.move_velocity(-50,50);
+	pros::Task::delay(625);
+	drivetrain.move_velocity(0,0);
+	pros::Task::delay(200);
+	drivetrain.move_velocity(-50,-50);
+	pros::Task::delay(1600);
+	drivetrain.move_velocity(0,0);
+	pros::Task::delay(200);
+	drivetrain.move_velocity(-50, 50);
+	pros::Task::delay(625);
+	drivetrain.move_velocity(0,0);
+	pros::Task::delay(200);
+	drivetrain.move_velocity(-100,-100);
+	pros::Task::delay(300);
+	drivetrain.move_velocity(0,0);
+	intake.move(150);
+	pros::Task::delay(4000);
+	intake.move(0);
+
+	//scores preload (next to parking zone LEFT)
 	// drivetrain.move_velocity(100,100);
 	// pros::Task::delay(700);
 	// drivetrain.move_velocity(0,0);
-	// drivetrain.move_velocity(-50,50);
+	// pros::Task::delay(150);
+	// drivetrain.move_velocity(50,-50);
 	// pros::Task::delay(600);
 	// drivetrain.move_velocity(0,0);
+	// pros::Task::delay(150);
 	// drivetrain.move_velocity(-100,-100);
-	// pros::Task::delay(700);
+	// pros::Task::delay(850);
 	// drivetrain.move_velocity(0,0);
-	// drivetrain.move_velocity(-50, 50);
+	// pros::Task::delay(150);
+	// drivetrain.move_velocity(50, -50);
 	// pros::Task::delay(600);
 	// drivetrain.move_velocity(0,0);
+	// pros::Task::delay(150);
 	// drivetrain.move_velocity(-100,-100);
 	// pros::Task::delay(300);
 	// drivetrain.move_velocity(0,0);
